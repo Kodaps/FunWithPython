@@ -9,8 +9,7 @@ import json
 from pytradfri import Gateway
 from pytradfri.api.libcoap_api import APIFactory
 
-
-CONFIG_FILE = "tradfri_conf.json"
+CONFIG_FILE = "./tradfri/tradfri_conf.json"
 
 with open(CONFIG_FILE) as json_file:
   conf = json.load(json_file)
@@ -72,7 +71,7 @@ def setLightHSB(light, h,s,b):
     api(command)
 
 def setLightState(light, state):
-    command = light.light_control.set_state(True)
+    command = light.light_control.set_state(state)
     api(command)
 
 def setLightIntensity(light, level):
