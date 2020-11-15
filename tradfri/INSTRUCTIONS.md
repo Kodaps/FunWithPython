@@ -1,12 +1,28 @@
 INSTRUCTIONS.md
 
-En supposant que Python3 est installé (si ce n'est pas le cas, voir ici : )
+1. installer libcoap 
 
-1. Installer les dépendances
+Sur mac/osx : `brew install libcoap`
 
-pip3 install requirements.txt 
+Sur linux (par ex. sur la debian raspberry pi) :
 
-2. installer les outils de dev
+````
+sudo apt-get install build-essential autoconf automake libtool
+git clone --recursive https://github.com/obgm/libcoap.git
+cd libcoap
+git checkout dtls
+git submodule update --init --recursive
+./autogen.sh
+./configure --disable-documentation --disable-shared
+make
+sudo make install
+````
+
+2. Installer les dépendances:
+
+`pip install requirements.txt` 
+
+
 
 
 
